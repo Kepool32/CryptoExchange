@@ -1,0 +1,91 @@
+/* CoinTable.scss */
+
+.coin-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 12px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #6989af; /* Темно-серый цвет */
+    color: #ffffff; /* Белый текст */
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2; /* Светло-серый цвет для четных строк */
+  }
+
+  tr:hover {
+    background-color: #ddd; /* Светло-серый цвет при наведении */
+  }
+
+  td button.add-button {
+    background-color: #007bff; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s, color 0.2s;
+
+    &:hover {
+      background-color: #0056b3; /* Цвет фона при наведении */
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+
+
+/* CoinList.scss */
+
+.coin-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 10vh;
+  margin:10px;
+}
+
+.load-more-button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s, color 0.2s;
+
+  &:hover {
+    background-color: #45a049;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+/* Стили для логотипа */
+.logo {
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  color: #FFD700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+
+  &-wrapper {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+}
