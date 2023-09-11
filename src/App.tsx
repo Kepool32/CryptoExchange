@@ -1,13 +1,16 @@
 import React from 'react';
+import router from "./routing/routes";
 
-import CoinList from "./components/CoinList";
 
+import {
+    RouterProvider
+} from "react-router-dom";
 
 
 function App() {
   return (
     <div >
-        <CoinList/>
+        <RouterProvider router={router} />
     </div>
   );
 }
