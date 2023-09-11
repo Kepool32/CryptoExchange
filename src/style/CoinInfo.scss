@@ -1,0 +1,96 @@
+.coin-info-container {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+  .coin-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 0 20px;
+  }
+  .coin-symbol{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:20px
+  }
+  h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  p {
+    font-size: 18px;
+    margin-right: 20px;
+  }
+
+  .icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+
+  .buttons-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .add-to-portfolio-button,
+  .go-back-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+
+  .go-back-button {
+    background-color: #dc3545;
+    margin-left: 10px;
+
+  }
+
+  .add-to-portfolio-button:hover,
+  .go-back-button:hover {
+    background-color: #0056b3;
+  }
+
+  @media (max-width: 768px) {
+    .coin-info-container {
+      margin: 10px;
+    }
+
+    .coin-info{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 0 20px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+
+    .buttons-container {
+      margin-top: 10px;
+    }
+
+    .add-to-portfolio-button,
+    .go-back-button {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  }
+}
