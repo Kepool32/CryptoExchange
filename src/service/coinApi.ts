@@ -1,10 +1,20 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Coin } from '../types/Coin';
 
-
 type GetCoinsParams = {
     limit: number;
     search?: string;
+};
+
+type GetPriceDataParams = {
+    coinId: string;
+    interval: string;
+};
+type PriceDataItem = {
+    time:number;
+    date: string;
+    priceUsd: string;
+
 };
 
 export const coinApi = createApi({
@@ -19,7 +29,15 @@ export const coinApi = createApi({
                 },
             }),
         }),
+        getPriceData: builder.query<{data:PriceDataItem []}, GetPriceDataParams>({
+            query: ({ coinId, interval }) => ({
+                url: `assets/${coinId}/history`,
+                params: {
+                    interval,
+                },
+            }),
+        }),
     }),
 });
 
-export const { useGetCoinsQuery } = coinApi;
+export const { useGetCoinsQuery, useGetPriceDataQuery } = coinApi;
