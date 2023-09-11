@@ -3,44 +3,50 @@
 .coin-table {
   width: 100%;
   border-collapse: collapse;
-
-  th, td {
+  th,
+  td {
     padding: 12px;
     text-align: left;
+    position: relative; /* Добавьте этот стиль */
   }
 
   th {
-    background-color: #6989af; /* Темно-серый цвет */
-    color: #ffffff; /* Белый текст */
+    background-color: #6989af;
+    color: #ffffff;
   }
 
   tr:nth-child(even) {
-    background-color: #f2f2f2; /* Светло-серый цвет для четных строк */
+    background-color: #f2f2f2;
   }
 
   tr:hover {
-    background-color: #ddd; /* Светло-серый цвет при наведении */
+    background-color: #ddd;
   }
 
   td button.add-button {
-    background-color: #007bff; /* Цвет фона */
-    color: #fff; /* Цвет текста */
+    background-color: #007bff;
+    color: #fff;
     border: none;
     border-radius: 5px;
     padding: 8px 16px;
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.2s, color 0.2s;
+  }
 
-    &:hover {
-      background-color: #0056b3; /* Цвет фона при наведении */
-    }
+  /* Добавьте стили для ссылки, чтобы она занимала всю строку */
+  .coin-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
 
-    &:focus {
-      outline: none;
-    }
+  /* Подсветка ссылки при наведении */
+  .coin-link:hover {
+    background-color: #ddd;
   }
 }
+
 
 
 
