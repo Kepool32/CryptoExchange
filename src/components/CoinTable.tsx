@@ -15,6 +15,7 @@ interface CoinTableProps {
 const CoinTable: React.FC<CoinTableProps> = ({ sortedData, onSortByPrice, onSortByMarketCap, onSortByChange }) => {
     return (
         <table className="coin-table">
+
             <thead>
             <tr>
                 <th>Symbol</th>
