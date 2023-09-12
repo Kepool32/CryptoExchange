@@ -1,26 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Coin } from '../types/Coin';
+import {GetCoinsParams, GetPriceDataParams, PriceDataItem, Types} from '../types/types';
 
-type GetCoinsParams = {
-    limit: number;
-    search?: string;
-};
 
-type GetPriceDataParams = {
-    coinId: string;
-    interval: string;
-};
-type PriceDataItem = {
-    time:number;
-    date: string;
-    priceUsd: string;
-
-};
 
 export const coinApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: 'https://api.coincap.io/v2' }),
     endpoints: (builder) => ({
-        getCoins: builder.query<{ data: Coin[] }, GetCoinsParams>({
+        getCoins: builder.query<{ data: Types[] }, GetCoinsParams>({
             query: ({ limit = 5, search }) => ({
                 url: 'assets',
                 params: {
