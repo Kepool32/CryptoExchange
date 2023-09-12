@@ -6,12 +6,7 @@ function calculatePercentageChange(oldPrice: number, newPrice: number): number {
 }
 
 export function CalculatePortfolioPercentageChange() {
-    const portfolioData = getPortfolioData();
-
-    if (portfolioData === null) {
-        return 0;
-    }
-
+   
     let totalPercentageChange = 0;
 
 
@@ -20,7 +15,12 @@ export function CalculatePortfolioPercentageChange() {
     },{
         pollingInterval: 1000,
     });
+     const portfolioData = getPortfolioData();
 
+    if (portfolioData === null) {
+        return 0;
+    }
+    
     for (const purchase of portfolioData) {
         const coinSymbol = purchase.coinSymbol;
 
