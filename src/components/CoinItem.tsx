@@ -1,13 +1,11 @@
 import React from 'react';
 import Icon from 'react-crypto-icons';
-
-import { Coin } from '../types/Coin';
+import {CoinItemProps} from '../types/types';
 import '../style/CoinTable.scss';
-import { formatValue } from '../formattingAndSorting/PriceFormatting';
+import {formatValue, formatValuePercent} from '../formattingAndSorting/PriceFormatting';
+import AddToPortfolioButton from "./Buttons/AddToPortfolioButton";
 
-interface CoinItemProps {
-    coin: Coin;
-}
+
 
 const CoinItem: React.FC<CoinItemProps> = ({ coin }) => {
     const handleRowClick = () => {
@@ -23,11 +21,12 @@ const CoinItem: React.FC<CoinItemProps> = ({ coin }) => {
             </td>
             <td>{formatValue(parseFloat(coin.priceUsd))}</td>
             <td>{formatValue(parseFloat(coin.marketCapUsd))}</td>
-            <td>{(parseFloat(coin.changePercent24Hr) * 100).toFixed(2)}%</td>
-            <td>
-                <button className="add-button">Add</button>
+            <td>{(formatValuePercent(parseFloat(coin.changePercent24Hr)))}</td>
+            <td onClick={(e) => e.stopPropagation()}>
+                <AddToPortfolioButton symbol={coin.name} price={coin.priceUsd}/>
             </td>
         </tr>
+
     );
 };
 

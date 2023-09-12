@@ -1,16 +1,9 @@
 import React from 'react';
 
-import { Coin } from '../types/Coin';
-import SortButton from './SortButton';
+import {CoinTableProps, Types} from '../types/types';
+import SortButton from './Buttons/SortButton';
 import '../style/CoinTable.scss';
 import CoinItem from './CoinItem';
-
-interface CoinTableProps {
-    sortedData: Coin[];
-    onSortByPrice: () => void;
-    onSortByMarketCap: () => void;
-    onSortByChange: () => void;
-}
 
 const CoinTable: React.FC<CoinTableProps> = ({ sortedData, onSortByPrice, onSortByMarketCap, onSortByChange }) => {
     return (

@@ -1,11 +1,12 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useGetCoinsQuery } from '../service/coinApi';
-import Loader from './Loader';
+import Loader from './Loader/Loader';
 import Icon from 'react-crypto-icons';
-import PriceChart from './PriceChart';
+import PriceChart from './Chart/PriceChart';
 import "../style/CoinInfo.scss"
 import {formatValue} from "../formattingAndSorting/PriceFormatting";
+import AddToPortfolioButton from "./Buttons/AddToPortfolioButton";
 
 const CoinInfo = () => {
     const { coinId } = useParams();
@@ -49,7 +50,7 @@ const CoinInfo = () => {
             </div>
                 <PriceChart coinId={coinId} />
                 <div className="buttons-container">
-                    <button className="add-to-portfolio-button">Add to Portfolio</button>
+                    <AddToPortfolioButton symbol={coin.name} price={coin.priceUsd}/>
                     <button className="go-back-button" onClick={() => history('/')}>Go Back</button>
                 </div>
         </div>
