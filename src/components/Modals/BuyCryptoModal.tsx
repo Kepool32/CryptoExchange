@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import ErrorMessage from '../../Error/ErrorMessage';
 import '../../style/buyCryptoModal.scss';
 import { getPortfolioData, setPortfolioData } from "../../utils/localStorage";
