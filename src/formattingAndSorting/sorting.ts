@@ -1,6 +1,6 @@
-import { Coin } from '../types/Coin';
+import { Types } from '../types/types';
 
-export const sortData = (data: Coin[], sortBy: string) => {
+export const sortData = (data: Types[], sortBy: string) => {
     return [...data].sort((a, b) => {
         if (sortBy === 'priceUsd') {
             return parseFloat(b.priceUsd) - parseFloat(a.priceUsd);
