@@ -1,8 +1,7 @@
 import React from 'react';
+import {PaginationButtonProps} from "../../types/types";
 
-interface PaginationButtonProps {
-    handleNextPage: () => void;
-}
+
 
 const PaginationButton: React.FC<PaginationButtonProps> = ({ handleNextPage }) => {
     return (
