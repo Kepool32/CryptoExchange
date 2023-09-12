@@ -14,7 +14,7 @@ const BuyCryptoModal: React.FC<BuyCryptoModalProps> = ({ isOpen, onClose, coinSy
 
     useEffect(() => {
         setTotalPrice(quantity * parseFloat(price));
-    }, [quantity, parseFloat(price)]);
+    }, [quantity, price]);
 
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
