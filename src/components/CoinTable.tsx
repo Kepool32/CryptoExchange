@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {CoinTableProps, Types} from '../types/types';
+import {CoinTableProps} from '../types/types';
 import SortButton from './Buttons/SortButton';
 import '../style/CoinTable.scss';
 import CoinItem from './CoinItem';
