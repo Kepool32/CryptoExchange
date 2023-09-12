@@ -1,11 +1,6 @@
-import {
-    createBrowserRouter,
-
-} from "react-router-dom";
+import {createBrowserRouter} from "react-router-dom";
 import CoinList from "../components/CoinList";
 import CoinInfo from "../components/CoinInfo";
-
-
 
 
 const router = createBrowserRouter([
