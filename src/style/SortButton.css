@@ -1,0 +1,24 @@
+.sort-button {
+  background-color: #a4a4d3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s, color 0.2s;
+}
+.sort-button:hover {
+  background-color: #0056b3;
+}
+.sort-button:focus {
+  outline: none;
+}
+@media (max-width: 768px) {
+  .sort-button {
+    font-size: 6px;
+    padding: 8px 12px;
+  }
+}
+
+/*# sourceMappingURL=SortButton.css.map */
