@@ -41,11 +41,11 @@ const PriceChart: React.FC<PriceChartProps> = ({ coinId }) => {
         coinId,
         interval: selectedInterval,
     }, {
-        pollingInterval: 100000,
+        pollingInterval: 1000,
     });
 
     if (isLoading) {
-        return <Loader/>;
+        return <Loader />;
     }
 
     if (isError) {
