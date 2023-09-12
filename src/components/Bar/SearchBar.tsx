@@ -1,10 +1,7 @@
 import React from 'react';
-import "../style/SearchBar.scss"
+import "../../style/SearchBar.scss"
+import {SearchBarProps} from "../../types/types";
 
-interface SearchBarProps {
-    searchQuery: string;
-    setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
-}
 
 const SearchBar: React.FC<SearchBarProps> = ({ searchQuery, setSearchQuery }) => {
     return (
