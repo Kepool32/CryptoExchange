@@ -1,5 +1,5 @@
 import React from 'react';
-import "./style/SearchBar.scss"
+import "./styles/SearchBar.scss"
 
 
 export interface SearchBarProps {
