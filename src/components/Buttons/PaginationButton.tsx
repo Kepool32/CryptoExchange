@@ -1,5 +1,5 @@
 import React from 'react';
-import "./style/PaginationButton.scss"
+import "./styles/PaginationButton.scss"
 
 export interface PaginationButtonProps {
     handlePrevPage: () => void;
