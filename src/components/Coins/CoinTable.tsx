@@ -1,5 +1,5 @@
 import React from 'react';
-import './style/CoinTable.scss';
+import './styles/CoinTable.scss';
 import CoinItem from './CoinItem';
 import {Coins} from "types/types";
 import SortButton from "../Buttons/SortButton";
