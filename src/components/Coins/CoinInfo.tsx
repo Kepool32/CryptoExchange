@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import "./style/CoinInfo.scss"
+import "./styles/CoinInfo.scss"
 import {useGetCoinsQuery} from "service/coinApi";
 import Loader from "../Loader/Loader";
 import Icon from "react-crypto-icons";
