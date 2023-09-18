@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import "./style/PortfolioModal.scss";
+import "./styles/PortfolioModal.scss";
 import {getPortfolioData, setPortfolioData} from "utils/localStorage";
 
 
