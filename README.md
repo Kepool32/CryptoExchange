@@ -16,32 +16,23 @@
 
 Проект использует следующие технологии:
 
-React 
-TypeScript
-SCSS modules
-RTK Query
-React Query
-React Crypto Icons
-react-chartjs-2
+- React
+- TypeScript
+- SCSS modules
+- RTK Query
+- React Query
+- React Crypto Icons
+- react-chartjs-2
+
 
 ## Установка
 
-1. Склонируйте репозиторий:
 
-```bash
-git clone https://github.com/yourusername/crypto-exchange-app.git
-Перейдите в директорию проекта:
-bash
-Copy code
-cd crypto-exchange-app
-Установите зависимости:
-bash
-Copy code
-npm install
-Запуск
+
+
+
 Для запуска приложения выполните:
 
-bash
-Copy code
+npm install
+
 npm run dev
-Приложение будет доступно по адресу http://localhost:3000.
