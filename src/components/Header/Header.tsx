@@ -10,6 +10,7 @@ import {CryptoData, PortfolioItem} from "./types/headerTypes";
 
 
 const Header: React.FC = () => {
+
     const [cryptoData, setCryptoData] = useState<CryptoData[]>([]);
     const [portfolioValue, setPortfolioValue] = useState<number>(0);
     const [portfolioModalOpen, setPortfolioModalOpen] = useState<boolean>(false);
@@ -69,14 +70,11 @@ const Header: React.FC = () => {
                 <div>
                     {portfolioValue.toFixed(2)} USD{' '}
                 </div>
-                <div style={{ color: differenceNumber > 0 && percentageChangeNumber > 0 ? 'green' : 'red' }}>
-                    {isNaN(differenceNumber) || isNaN(percentageChangeNumber  ) ? (
+                <div style={{ color: differenceNumber >= 0 && percentageChangeNumber >= 0 ? 'green' : 'red' }}>
 
-                        <div className="loader"></div>
-                    ) : (
 
-                        `${difference} (${percentageChange}%)`
-                    )}
+                    {difference} ({percentageChange}%)
+
                 </div>
 
             </div>
