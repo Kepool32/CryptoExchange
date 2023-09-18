@@ -1,5 +1,5 @@
 import React from 'react';
-import router from "./routing/routes";
+import router from "./routes/routes";
 import {RouterProvider} from "react-router-dom";
 import Header from "./components/Header/Header";
 
