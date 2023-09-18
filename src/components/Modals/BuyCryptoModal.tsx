@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import ErrorMessage from '../Error/ErrorMessage';
-import './style/BuyCryptoModal.scss';
+import './styles/BuyCryptoModal.scss';
 import { getPortfolioData, setPortfolioData } from "utils/localStorage";
+import ErrorMessage from "../error/ErrorMessage";
 
 
 export type BuyCryptoModalProps = {
