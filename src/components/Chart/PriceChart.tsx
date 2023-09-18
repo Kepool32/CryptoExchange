@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useGetPriceDataQuery } from 'service/coinApi';
-import './style/PriceChart.scss';
+import './styles/PriceChart.scss';
 import { Line } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
