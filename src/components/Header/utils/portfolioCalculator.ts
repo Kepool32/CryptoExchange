@@ -1,5 +1,5 @@
-import { getPortfolioData } from "../utils/localStorage";
-import { useGetCoinsQuery } from "../service/coinApi";
+import { getPortfolioData } from "utils/localStorage";
+import { useGetCoinsQuery } from "service/coinApi";
 
 
 function calculatePortfolioValue(portfolioData: any[], coinsData: any[]): number {
@@ -39,7 +39,11 @@ export function CalculatePortfolioPercentageChange() {
     const newPortfolioValue = calculatePortfolioValue(portfolioData, coinsData.data);
 
     const difference = newPortfolioValue - oldPortfolioValue;
-    const percentageChange = ((difference) * 100) / oldPortfolioValue;
+    let percentageChange = ((difference) * 100) / oldPortfolioValue;
+
+    if (isNaN(percentageChange)) {
+        percentageChange = 0;
+    }
 
     return { difference: difference.toFixed(2) + " USD" , percentageChange: percentageChange.toFixed(2) };
 }

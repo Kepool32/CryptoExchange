@@ -1,11 +1,12 @@
 import React from 'react';
 import Icon from 'react-crypto-icons';
-import {CoinItemProps} from '../types/types';
-import '../style/CoinTable.scss';
-import {formatValue, formatValuePercent} from '../formattingAndSorting/PriceFormatting';
-import AddToPortfolioButton from "./Buttons/AddToPortfolioButton";
+import {Coins} from "types/types";
+import {formatValue, formatValuePercent} from "./utils/priceFormatter";
+import AddToPortfolioButton from "../Buttons/AddToPortfolioButton";
 
-
+export interface CoinItemProps {
+    coin: Coins;
+}
 
 const CoinItem: React.FC<CoinItemProps> = ({ coin }) => {
     const handleRowClick = () => {

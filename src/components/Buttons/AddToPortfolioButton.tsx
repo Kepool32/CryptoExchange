@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import BuyCryptoModal from '../Modals/BuyCryptoModal';
-import '../../style/CoinTable.scss';
-import {AddToPortfolioButtonProps} from "../../types/types";
+import '../Coins/style/CoinTable.scss';
 
+
+export type AddToPortfolioButtonProps = {
+    symbol: string;
+    price: string;
+};
 
 const AddToPortfolioButton: React.FC<AddToPortfolioButtonProps> = ({ symbol, price }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);

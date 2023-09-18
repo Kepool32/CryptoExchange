@@ -1,0 +1,60 @@
+.coin-table {
+  width: 100%;
+  border-collapse: collapse;
+  height: 100px;
+}
+.coin-table th,
+.coin-table td {
+  padding: 8px;
+  text-align: left;
+  position: relative;
+  font-size: 14px;
+  max-width: 12px;
+  height: 65px;
+  table-layout: fixed;
+  overflow: hidden;
+}
+.coin-table th {
+  background-color: #6989af;
+  color: #ffffff;
+}
+.coin-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.coin-table tr:hover {
+  background-color: #ddd;
+}
+.coin-table button.add-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s, color 0.2s;
+}
+.coin-table .coin-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.coin-table .coin-link:hover {
+  background-color: #ddd;
+}
+@media (max-width: 768px) {
+  .coin-table td,
+  .coin-table th {
+    padding: 4px;
+    font-size: 12px;
+  }
+  .coin-table .coin-table {
+    font-size: 12px;
+  }
+  .coin-table td button.add-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+/*# sourceMappingURL=CoinTable.css.map */

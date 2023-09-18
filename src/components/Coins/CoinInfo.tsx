@@ -1,12 +1,14 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useGetCoinsQuery } from '../service/coinApi';
-import Loader from './Loader/Loader';
-import Icon from 'react-crypto-icons';
-import PriceChart from './Chart/PriceChart';
-import "../style/CoinInfo.scss"
-import {formatValue} from "../formattingAndSorting/PriceFormatting";
-import AddToPortfolioButton from "./Buttons/AddToPortfolioButton";
+import "./style/CoinInfo.scss"
+import {useGetCoinsQuery} from "service/coinApi";
+import Loader from "../Loader/Loader";
+import Icon from "react-crypto-icons";
+import {formatValue} from "./utils/priceFormatter";
+import PriceChart from "../Chart/PriceChart";
+import AddToPortfolioButton from "../Buttons/AddToPortfolioButton";
+
+
 
 const CoinInfo = () => {
     const { coinId } = useParams();

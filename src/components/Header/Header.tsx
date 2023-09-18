@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { useGetCoinsQuery } from '../../service/coinApi';
-import '../../style/Header.scss';
+import { useGetCoinsQuery } from 'service/coinApi';
+import './style/Header.scss';
 import PortfolioModal from "../Modals/PortfolioModal";
-import { getPortfolioData } from "../../utils/localStorage";
-import { CalculatePortfolioPercentageChange } from "../../formattingAndSorting/calculatePortfolio";
-import {CryptoData, PortfolioItem} from "../../types/types";
+import { getPortfolioData } from "utils/localStorage";
+import { CalculatePortfolioPercentageChange } from "./utils/portfolioCalculator";
+import {CryptoData, PortfolioItem} from "./types/headerTypes";
+
+
 
 
 const Header: React.FC = () => {
     const [cryptoData, setCryptoData] = useState<CryptoData[]>([]);
     const [portfolioValue, setPortfolioValue] = useState<number>(0);
     const [portfolioModalOpen, setPortfolioModalOpen] = useState<boolean>(false);
-    const title = CalculatePortfolioPercentageChange()
+    const {difference,percentageChange} = CalculatePortfolioPercentageChange()
+    const differenceNumber = parseFloat(difference);
+    const percentageChangeNumber = parseFloat(percentageChange);
+
 
     const { data } = useGetCoinsQuery({ limit: 3 }, { pollingInterval: 1000 });
 
@@ -61,12 +66,19 @@ const Header: React.FC = () => {
                 </div>
             </div>
             <div className="portfolio-info" onClick={openPortfolioModal}>
-                <p>
+                <div>
                     {portfolioValue.toFixed(2)} USD{' '}
-                </p>
-                <p style={{ color: title < 0 ? 'red' : 'green' }}>
-                    ({title}%)
-                </p>
+                </div>
+                <div style={{ color: differenceNumber > 0 && percentageChangeNumber > 0 ? 'green' : 'red' }}>
+                    {isNaN(differenceNumber) || isNaN(percentageChangeNumber  ) ? (
+
+                        <div className="loader"></div>
+                    ) : (
+
+                        `${difference} (${percentageChange}%)`
+                    )}
+                </div>
+
             </div>
             {portfolioModalOpen && (
                 <PortfolioModal isOpen={portfolioModalOpen} onClose={closePortfolioModal} />

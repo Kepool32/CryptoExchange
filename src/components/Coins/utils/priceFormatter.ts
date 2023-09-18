@@ -1,7 +1,4 @@
-
-
-
-export const PriceFormatting = (price: number): string => {
+export const PriceFormatter = (price: number): string => {
     if (price >= 1e9) {
         return (price / 1e9).toFixed(2) + 'B';
     } else if (price >= 1e6) {
@@ -17,7 +14,7 @@ export const formatValue = (value: number): string => {
     if (isNaN(value) || value <= 0.01) {
         return '';
     }
-    return PriceFormatting(value);
+    return PriceFormatter(value);
 }
 
 export const formatValuePercent = (value: number) => {

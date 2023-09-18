@@ -1,7 +1,10 @@
 import React from 'react';
-import "../../style/SortButton.scss"
-import {SortButtonProps} from "../../types/types";
+import "./style/SortButton.scss"
 
+export interface SortButtonProps {
+    label: string;
+    onClick: () => void;
+}
 
 const SortButton: React.FC<SortButtonProps> = ({ label, onClick }) => {
     return (

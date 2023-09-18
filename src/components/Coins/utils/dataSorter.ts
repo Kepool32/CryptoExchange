@@ -1,4 +1,4 @@
-import { Coins } from '../types/types';
+import { Coins } from '../../../types/types';
 
 export const sortData = (data: Coins[], sortBy: string) => {
     return [...data].sort((a, b) => {

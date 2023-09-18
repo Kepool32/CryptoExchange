@@ -1,12 +1,22 @@
-import React, { useEffect, useState, useRef } from 'react';
-import "../../style/PortfolioModal.scss";
-import {getPortfolioData, setPortfolioData} from "../../utils/localStorage";
-import {PortfolioDataItem, PortfolioModalProps} from "../../types/types";
+import React, { useEffect, useState } from 'react';
+import "./style/PortfolioModal.scss";
+import {getPortfolioData, setPortfolioData} from "utils/localStorage";
 
+
+export type PortfolioModalProps = {
+    isOpen: boolean;
+    onClose: () => void;
+};
+
+export type PortfolioDataItem = {
+    coinSymbol: string;
+    quantity: number;
+    price: number;
+};
 
 const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose }) => {
     const [portfolioData, setPortfolioDatas] = useState<PortfolioDataItem[]>([]);
-    const modalRef = useRef<HTMLDivElement | null>(null);
+
 
     useEffect(() => {
         const data = getPortfolioData();
@@ -21,11 +31,11 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose }) => {
         setPortfolioData(updatedPortfolioData);
     };
 
-    if (!isOpen) return null;
+
 
     return (
         <div className={`modal ${isOpen ? 'open' : ''}`} onClick={onClose}>
-            <div ref={modalRef} className={`modal-content ${isOpen ? 'open' : ''}`} onClick={(e) => e.stopPropagation()}>
+            <div  className={`modal-content ${isOpen ? 'open' : ''}`} onClick={(e) => e.stopPropagation()}>
                 <span className="close" onClick={onClose}>
                     &times;
                 </span>

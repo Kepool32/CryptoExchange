@@ -1,7 +1,11 @@
-import {PurchaseData} from "../types/types";
+const LOCAL_STORAGE_KEY = 'cryptoPortfolio';
 
-const LOCAL_STORAGE_KEY = 'cryptoPortfolio'; // Ключ Local Storage
 
+export interface PurchaseData {
+    coinSymbol: string;
+    quantity: number;
+    price: number;
+}
 
 export const getPortfolioData = (): PurchaseData[] | null => {
     const data = localStorage.getItem(LOCAL_STORAGE_KEY);

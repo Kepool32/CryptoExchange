@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Coins } from '../types/types';
-import CoinTable from './CoinTable';
-import SearchBar from './Bar/SearchBar';
-import '../style/CoinTable.scss';
-import { useGetCoinsQuery } from '../service/coinApi';
-import { sortData } from '../formattingAndSorting/sorting';
-import Loader from './Loader/Loader';
+import PaginationButton from "../Buttons/PaginationButton";
+import Loader from "../Loader/Loader";
+import {Coins} from "types/types";
+import {useGetCoinsQuery} from "service/coinApi";
+import {sortData} from "./utils/dataSorter";
+import SearchBar from "../Bar/SearchBar";
+import CoinTable from "./CoinTable";
 
 const CoinList: React.FC = () => {
     const [page, setPage] = useState(0);
@@ -76,18 +76,12 @@ const CoinList: React.FC = () => {
                         onSortByMarketCap={handleSortByMarketCap}
                         onSortByChange={handleSortByChange}
                     />
-                    <div className='coin-list-container'>
-                        <button
-                            className='load--button'
-                            onClick={handlePrevPage}
-                            disabled={page === 0}
-                        >
-                            Previous
-                        </button>
-                        <button className='load-more-button' onClick={handleNextPage}>
-                            {isLoadingMore ? 'Loading...' : 'Next'}
-                        </button>
-                    </div>
+                    <PaginationButton
+                        handlePrevPage={handlePrevPage}
+                        handleNextPage={handleNextPage}
+                        page={page}
+                        isLoadingMore={isLoadingMore}
+                    />
                 </div>
             )}
         </div>

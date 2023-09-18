@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useGetPriceDataQuery } from '../../service/coinApi';
-import '../../style/PriceChart.scss';
+import { useGetPriceDataQuery } from 'service/coinApi';
+import './style/PriceChart.scss';
 import { Line } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
@@ -14,7 +14,7 @@ import {
 } from 'chart.js';
 import { format } from 'date-fns';
 import Loader from "../Loader/Loader";
-import {PriceChartProps, PriceDataItem} from "../../types/types";
+import {PriceDataItem} from "types/types";
 
 ChartJS.register(
     CategoryScale,
@@ -26,14 +26,16 @@ ChartJS.register(
     Legend
 );
 
+export type PriceChartProps = {
+    coinId: string;
+};
+
 const PriceChart: React.FC<PriceChartProps> = ({ coinId }) => {
     const [selectedInterval, setSelectedInterval] = useState('m1');
 
     const { data: priceData, isLoading, isError } = useGetPriceDataQuery({
         coinId,
         interval: selectedInterval,
-    }, {
-        pollingInterval: 1000,
     });
 
     if (isLoading) {
