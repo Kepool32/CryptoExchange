@@ -21,7 +21,7 @@ export const formatValue = (value: number): string => {
 }
 
 export const formatValuePercent = (value: number) => {
-    if (isNaN(value) || value <= 0.01) {
+    if (isNaN(value)) {
         return '';
     }
     return value.toFixed(2) + '%';

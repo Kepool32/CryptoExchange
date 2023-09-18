@@ -14,7 +14,7 @@ const CoinItem: React.FC<CoinItemProps> = ({ coin }) => {
     };
 
     return (
-        <tr className="coin-row" onClick={handleRowClick}>
+        <tr  onClick={handleRowClick}>
             <td>{coin.symbol}</td>
             <td>
                 <Icon name={coin.symbol.toLowerCase()} size={25} />
