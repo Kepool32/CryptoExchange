@@ -51,6 +51,10 @@ export function CalculatePortfolioPercentageChange() {
     const difference = newPortfolioValue - oldPortfolioValue;
     let percentageChange = ((difference) * 100) / oldPortfolioValue;
 
+     if (isNaN(percentageChange)) {
+        percentageChange = 0;
+    }
+
     return { difference: difference.toFixed(2) + " USD" , percentageChange: percentageChange.toFixed(2) };
 }
 
