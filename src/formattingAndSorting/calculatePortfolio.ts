@@ -1,44 +1,56 @@
-import { getPortfolioData } from "../utils/localStorage";
-import { useGetCoinsQuery } from "../service/coinApi";
+import { getPortfolioData } from "utils/localStorage";
+import { useGetCoinsQuery } from "service/coinApi";
 
-function calculatePercentageChange(oldPrice: number, newPrice: number): number {
-    return ((newPrice - oldPrice) / oldPrice) * 100;
+
+interface CoinData {
+    name: string;
+    priceUsd: string;
 }
 
-export function CalculatePortfolioPercentageChange() {
-   
-    let totalPercentageChange = 0;
+interface PurchaseData {
+    coinSymbol: string;
+    quantity: number;
+}
 
+function calculatePortfolioValue(portfolioData: PurchaseData[], coinsData: CoinData[]): number {
+    let totalValue = 0;
 
-    const { data: coinsData } = useGetCoinsQuery({
-        limit: 100,
-    },{
-        pollingInterval: 1000,
-    });
-     const portfolioData = getPortfolioData();
-
-    if (portfolioData === null) {
-        return 0;
-    }
-    
     for (const purchase of portfolioData) {
         const coinSymbol = purchase.coinSymbol;
-
-
-        const coinData = coinsData?.data.find((coin) => coin.name === coinSymbol);
+        const coinData = coinsData.find((coin) => coin.name === coinSymbol);
 
         if (coinData) {
-            const currentPrice = coinData.priceUsd;
-
-            if (currentPrice !== undefined) {
-                const percentageChange = calculatePercentageChange(
-                    purchase.price,
-                    parseFloat(currentPrice)
-                );
-                totalPercentageChange += percentageChange;
-            }
+            const currentPrice = parseFloat(coinData.priceUsd);
+            const quantity = purchase.quantity;
+            totalValue += currentPrice * quantity;
         }
     }
 
-    return totalPercentageChange.toFixed(2);
+    return totalValue;
 }
+
+export function CalculatePortfolioPercentageChange() {
+    const { data: coinsData } = useGetCoinsQuery({
+        limit: 100,
+    });
+
+
+    const portfolioData = getPortfolioData();
+
+    if (!portfolioData || !coinsData) {
+        return { difference: 0.001.toFixed(2), percentageChange: 0.001.toFixed(2) };
+    }
+
+    const oldPortfolioValue = portfolioData.reduce(
+        (total, purchase) => total + purchase.quantity * purchase.price,
+        0
+    );
+
+    const newPortfolioValue = calculatePortfolioValue(portfolioData, coinsData.data);
+
+    const difference = newPortfolioValue - oldPortfolioValue;
+    let percentageChange = ((difference) * 100) / oldPortfolioValue;
+
+    return { difference: difference.toFixed(2) + " USD" , percentageChange: percentageChange.toFixed(2) };
+}
+
