@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useGetCoinsQuery } from 'service/coinApi';
-import './style/Header.scss';
+import './styles/Header.scss';
 import PortfolioModal from "../Modals/PortfolioModal";
 import { getPortfolioData } from "utils/localStorage";
 import { CalculatePortfolioPercentageChange } from "./utils/portfolioCalculator";
