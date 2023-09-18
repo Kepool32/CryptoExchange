@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import BuyCryptoModal from '../Modals/BuyCryptoModal';
-import '../Coins/style/CoinTable.scss';
+import '../Coins/styles/CoinTable.scss';
 
 
 export type AddToPortfolioButtonProps = {
