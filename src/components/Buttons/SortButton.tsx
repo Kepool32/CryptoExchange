@@ -1,5 +1,5 @@
 import React from 'react';
-import "./style/SortButton.scss"
+import "./styles/SortButton.scss"
 
 export interface SortButtonProps {
     label: string;
